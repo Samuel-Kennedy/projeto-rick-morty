@@ -1,0 +1,56 @@
+.pequeno-img-rick {
+    width: 114px;
+    height: 64px;
+}
+
+.estiloBtnDark {
+    color: #A4A4A4;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+}
+
+.estiloBtnLight {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #0A0A0A;
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 576px) {
+
+    .d-flex {
+        flex-direction: column;
+    }
+}
+
+.estiloCoracao {
+    margin-top: 0.2rem;
+    margin-right: 0.5rem;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    padding: var(--measure-spacing-xxxs);
+    gap: 0px;
+    border-radius: 50%;
+    border: 1px solid #3D3D3D;
+    background-color: white;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0A0A0A;
+    margin-left: 0.5rem;
+}
+
+.estiloCasa {
+    margin-right: 0.5rem;
+}
