@@ -10,8 +10,7 @@ import { RequisicaoRickService } from '../service/requisicao-rick.service';
 })
 export class InicioRickComponent implements OnInit {
   srcImagem: string = '../assets/inicio-img-rick.png';
-  srcImagemGeral: string[] = [];
-  dataSource = new MatTableDataSource<string>();
+  dataSource = new MatTableDataSource<{ url: string, nome: string, tipo: string }>();
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
   constructor(private requisicaoRickService: RequisicaoRickService) {}
@@ -23,19 +22,18 @@ export class InicioRickComponent implements OnInit {
   loadImages(): void {
     this.requisicaoRickService.getCharacters().subscribe({
       next: (data) => {
-        this.srcImagemGeral = data.results.map((character: any) => character.image);
-        this.dataSource.data = this.srcImagemGeral;
-        this.setupPaginator();
+        this.dataSource.data = data.results.map((character: any) => ({
+          url: character.image,
+          nome: character.name,
+          tipo: character.species
+        }));
+        if (this.paginator) {
+          this.dataSource.paginator = this.paginator;
+        }
       },
       error: () => {
         // Handle error
       }
     });
-  }
-
-  setupPaginator(): void {
-    if (this.paginator) {
-      this.dataSource.paginator = this.paginator;
-    }
   }
 }
