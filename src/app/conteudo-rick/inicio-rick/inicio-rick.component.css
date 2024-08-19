@@ -4,7 +4,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    overflow: hidden;
     background-color: #1F1F1F;
     color: white;
     padding-top: 20px;
@@ -21,7 +20,6 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 .container {
@@ -43,28 +41,20 @@ body {
     box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-    .espacamentoTop {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .inicio-img-rick {
-        margin-bottom: 1rem;
-    }
-
-    .container {
-        max-width: 100%;
-    }
-}
-
-.espamentoPesquisar {
+.imagens-galeria {
     margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.custom-form-field {
-    width: 328px;
-    height: 49px;
+.imagem-container {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.imagem-geral {
+    width: 224px;
+    height: 224px;
+    object-fit: cover;
 }
