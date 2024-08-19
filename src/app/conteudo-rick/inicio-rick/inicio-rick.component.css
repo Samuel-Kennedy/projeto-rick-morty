@@ -3,14 +3,11 @@
     margin: 0;
     display: flex;
     align-items: flex-start;
-    /* Alinha o conteúdo no topo */
     justify-content: center;
-    /* Centraliza horizontalmente */
     overflow: hidden;
     background-color: #1F1F1F;
     color: white;
     padding-top: 20px;
-    /* Espaçamento opcional do topo */
 }
 
 .inicio-img-rick {
@@ -25,63 +22,49 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /* Remove a rolagem desnecessária */
 }
-
-/* Estilo do campo de entrada */
-input {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #5D5D5D;
-    border-radius: 4px;
-    background-color: transparent;
-    color: white;
-    font-size: 1rem;
-    box-sizing: border-box;
-    outline: none;
-}
-
-/* Estilo do placeholder */
-input::placeholder {
-    color: #7a7a7a;
-    opacity: 1; /* Garante que o placeholder seja opaco */
-}
-
-/* Estilo do campo de entrada ao focar */
-input:focus {
-    border-color: #5D5D5D;
-    box-shadow: none;
-}
-
 
 .container {
     width: 100%;
-    max-width: 400px;
+    max-width: 720px;
 }
 
-/* Estilo do grupo do formulário */
-.form-group {
-    position: relative;
-    margin-bottom: 1rem;
-}
-/* Estilo do label */
-label {
-    position: absolute;
-    top: 0.75rem;
-    left: 1rem;
-    font-size: 1rem;
-    color: #5D5D5D;
-    transition: all 0.2s ease;
-    pointer-events: none;
+.corTextoInput {
+    color: white !important;
 }
 
-/* Estilo do label quando o campo de entrada está focado ou não está vazio */
-input:focus ~ label,
-input:not(:placeholder-shown) ~ label {
-    top: -0.75rem;
-    left: 0.75rem;
-    font-size: 0.75rem;
-    color: #5D5D5D;
-    background-color: #1F1F1F; /* Cor de fundo do label */
-    padding: 0 0.25rem;
+.espacamentoTop {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .espacamentoTop {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inicio-img-rick {
+        margin-bottom: 1rem;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+}
+
+.espamentoPesquisar {
+    margin-top: 1rem;
+}
+
+.custom-form-field {
+    width: 328px;
+    height: 49px;
+    display: flex;
+    align-items: center;
 }

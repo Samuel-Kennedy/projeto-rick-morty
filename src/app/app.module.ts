@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { HeaderRickComponent } from './header-rick/header-rick.component';
 import { HomeComponent } from './home/home.component';
 import { InicioRickComponent } from './conteudo-rick/inicio-rick/inicio-rick.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +22,12 @@ import { InicioRickComponent } from './conteudo-rick/inicio-rick/inicio-rick.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

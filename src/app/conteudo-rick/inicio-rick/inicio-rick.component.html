@@ -1,12 +1,15 @@
 <div class="inicio-content">
-    <img [src]="srcImagem" alt="pequeno-img-rick" class="inicio-img-rick">
-    
-
     <div class="container">
-        <div class="form-group">
-            <input type="email" id="emailInput" placeholder=" ">
-            <label for="emailInput">Email address</label>
+        <div class="espacamentoTop col-12">
+            <div class="row">
+                <img [src]="srcImagem" alt="pequeno-img-rick" class="inicio-img-rick">
+            </div>
+            <div class="row espamentoPesquisar">
+                <mat-form-field appearance="outline" class="custom-form-field">
+                    <mat-label>Pesquisar</mat-label>
+                    <input class="corTextoInput" matInput>
+                </mat-form-field>
+            </div>
         </div>
     </div>
-
 </div>

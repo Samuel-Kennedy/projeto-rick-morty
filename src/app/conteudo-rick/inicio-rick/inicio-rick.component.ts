@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio-rick.component.css']
 })
 
-export class InicioRickComponent implements OnInit{
+export class InicioRickComponent implements OnInit {
 
   srcImagem: string = '../assets/inicio-img-rick.png';
 
   ngOnInit(): void {
-    
+
   }
 
 }
