@@ -58,3 +58,13 @@ body {
     height: 224px;
     object-fit: cover;
 }
+
+.estiloPaginator {
+    background-color: #1F1F1F;
+    color: white;
+}
+
+::ng-deep .mat-mdc-paginator-icon {
+    fill: white !important; /* Define a cor de preenchimento dos ícones SVG como branco */
+  }
+  
