@@ -22,4 +22,7 @@ export class FavoritoService {
     this.favoritesSubject.next(currentFavorites.filter(fav => fav !== item));
   }
 
+  getFavoritesCount(): number {
+    return this.favoritesSubject.value.length;
+  }
 }

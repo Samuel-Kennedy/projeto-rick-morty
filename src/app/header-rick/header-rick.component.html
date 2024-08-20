@@ -2,17 +2,26 @@
     <div class="container-fluid">
         <img [src]="srcImagem" alt="pequeno-img-rick" class="pequeno-img-rick">
         <div class="btn-group d-flex" role="group" aria-label="Basic checkbox toggle button group">
-
             <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-            <label type="button" class="btn btn-light btn-outline-secondary estiloBtnLight" for="btncheck1">
+            <label class="bordaInicio" (click)="enviaHome()" type="button" 
+                [ngClass]="{
+                  'btn-light estiloBtnLight': isHomeActive,
+                  'btn-dark estiloBtnDark': !isHomeActive
+                }" 
+                for="btncheck1">
                 <i class="fa-solid fa-house estiloCasa"></i>Início
             </label>
 
             <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-            <label type="button" class="btn btn-dark btn-outline-secondary estiloBtnDark" for="btncheck2">
-                <i class="fa-solid fa-heart estiloCoracao"></i>Favoritos<i class="circle">3</i>
+            <label (click)="enviaFavorito()" type="button" 
+                [ngClass]="{
+                  'btn-light estiloBtnLight': !isHomeActive,
+                  'btn-dark estiloBtnDark': isHomeActive
+                }"
+                for="btncheck2">
+                <i class="fa-solid fa-heart estiloCoracao"></i>Favoritos                
+                <p class="circle">{{ favoritesCount }}</p>
             </label>
-
-          </div>
+        </div>
     </div>
 </nav>

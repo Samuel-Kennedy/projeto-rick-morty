@@ -3,18 +3,25 @@
     height: 64px;
 }
 
-.estiloBtnDark {
-    color: #A4A4A4;
+.estiloBtnDark, .estiloBtnLight {
     font-size: 14px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 0;
+    border: 1px solid #3D3D3D;
+}
+
+.estiloBtnDark {
+    background-color: #0A0A0A;
+    color: #A4A4A4;
 }
 
 .estiloBtnLight {
-    font-size: 14px;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF;
     color: #0A0A0A;
 }
 
@@ -23,10 +30,38 @@
     flex-direction: row;
 }
 
-@media (max-width: 576px) {
+.d-flex label:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-color: #5D5D5D !important;
+}
 
+.d-flex label:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-color: #5D5D5D !important;
+}
+
+.d-flex input:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-color: #5D5D5D !important;
+}
+
+.d-flex input:last-child {
+    border-top-right-radius: 8px;
+    border-color: #5D5D5D !important;
+    border-bottom-right-radius: 8px;
+}
+
+@media (max-width: 576px) {
     .d-flex {
         flex-direction: column;
+    }
+
+    .d-flex label {
+        border-radius: 8px;
+        margin-bottom: 5px;
     }
 }
 
@@ -48,9 +83,17 @@
     align-items: center;
     justify-content: center;
     color: #0A0A0A;
-    margin-left: 0.5rem;
+    margin: 0px 0px 0px 0.5rem;
 }
 
 .estiloCasa {
     margin-right: 0.5rem;
+}
+
+.bordaInicio {
+    border-radius: 10px 0px 0px 10px;
+}
+
+.bg-dark {
+    background: #0A0A0A !important;
 }
