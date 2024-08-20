@@ -32,6 +32,7 @@ body {
 
 .espacamentoTop {
     margin-top: 2rem;
+    align-items: center;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -167,4 +168,18 @@ body {
     border-radius: 0px 20px 0px 20px;
     top: 0px;
     right: 0;
+}
+
+.fontInicio {
+    font-family: 'Creepster', cursive;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    color: #00B5CC;
+    text-shadow:
+        1px 1px 0 #B2DF28,
+        -1px -1px 0 #B2DF28,
+        -1px 1px 0 #B2DF28,
+        1px -1px 0 #B2DF28;
 }
