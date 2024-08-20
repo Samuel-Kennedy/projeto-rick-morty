@@ -2,19 +2,22 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { RequisicaoRickService } from '../service/requisicao-rick.service';
+import { ItemsRick } from '../../models/itemsRick'
 
 @Component({
   selector: 'app-inicio-rick',
   templateUrl: './inicio-rick.component.html',
   styleUrls: ['./inicio-rick.component.css']
 })
+
 export class InicioRickComponent implements OnInit {
   srcImagem: string = '../assets/inicio-img-rick.png';
-  dataSource = new MatTableDataSource<{ url: string, nome: string, tipo: string, extraTipo: string }>();
-  filteredData: { url: string, nome: string, tipo: string, extraTipo: string }[] = [];
+  dataSource = new MatTableDataSource<ItemsRick>();
+  filteredData: ItemsRick[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   searchText: string = '';
   seachValidador: boolean = true;
+
   constructor(private requisicaoRickService: RequisicaoRickService) {}
 
   ngOnInit(): void {
@@ -28,9 +31,10 @@ export class InicioRickComponent implements OnInit {
           url: character.image,
           nome: character.name,
           tipo: character.species,
-          extraTipo: character.type
+          extraTipo: character.type,
+          favorito: false
         }));
-        this.filteredData = this.dataSource.data;
+        this.filteredData = [...this.dataSource.data];
         if (this.paginator) {
           this.dataSource.paginator = this.paginator;
         }
@@ -41,13 +45,15 @@ export class InicioRickComponent implements OnInit {
     });
   }
 
+  toggleFavorito(item: ItemsRick): void {
+    item.favorito = !item.favorito;
+  }
+
   onSearch(): void {
     const filterValue = this.searchText.trim().toLowerCase();
-    this.filteredData = this.dataSource.data.filter(item => item.nome.toLowerCase().includes(filterValue));
-    if(this.filteredData.length === 0){
-      this.seachValidador = false;
-    }else{
-      this.seachValidador = true;
-    }
+    this.filteredData = this.dataSource.data.filter(item => 
+      item.nome?.toLowerCase().includes(filterValue)
+    );
+    this.seachValidador = this.filteredData.length > 0;
   }
 }
