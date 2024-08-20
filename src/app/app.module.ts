@@ -13,13 +13,15 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { FavoritosComponent } from './conteudo-rick/favoritos/favoritos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderRickComponent,
     HomeComponent,
-    InicioRickComponent
+    InicioRickComponent,
+    FavoritosComponent
   ],
   imports: [
     BrowserModule,
