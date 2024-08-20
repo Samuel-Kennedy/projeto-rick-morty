@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+    border-color: #5D5D5D !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    caret-color: #5D5D5D !important;
+}
+
+.mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-floating-label {
+    color: #5D5D5D !important;
+    border-color: #5D5D5D !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: #5D5D5D !important;
+}
+
+
+.mdc-text-field--outlined .mdc-notched-outline {
+    border-radius: 14px !important;
+}
+
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-radius: 0px 20px 20px 0px !important;
+}
+
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
+    border-radius: 20px 0px 0px 20px !important;
+}
+
+.mat-typography {
+    background-color: #1F1F1F !important;
+}
