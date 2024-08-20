@@ -1,1 +1,35 @@
 <app-header-rick></app-header-rick>
+<div class="inicio-content">
+    <div class="container">
+        <div class="row imagens-galeria">
+            <div *ngFor="let item of favoritosList" class="col-4 imagem-container">
+                <div class="imagem-wrapper">
+                    <div *ngIf="item.favorito" class="estiloBordaCoracao">
+                        <i class="fa-solid fa-heart estiloCoracao estiloCoracaoPreto"
+                           (click)="toggleFavorito(item)"></i>
+                    </div>
+                    <img [src]="item.url" alt="imagens-geral" class="imagem-geral">
+                </div>
+                <div class="info-imagem">
+                    <div class="nome-imagem">
+                        {{ item.nome }}
+                    </div>
+                    <div class="tipo-imagem">
+                        {{ item.tipo }}
+                    </div>
+                    <div class="tipo-imagem">
+                        {{ item.extraTipo }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="no-results" *ngIf="favoritosList.length === 0">
+            <div class="no-results-text">
+                Nenhum favorito encontrado
+            </div>
+            <div class="no-results-subtext">
+                Adicione itens aos favoritos para vê-los aqui.
+            </div>
+        </div>
+    </div>
+</div>
