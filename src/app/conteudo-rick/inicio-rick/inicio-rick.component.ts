@@ -32,7 +32,7 @@ export class InicioRickComponent implements OnInit {
         }
       },
       error: () => {
-        // Handle error
+        // Tratamento aqui
       }
     });
   }
