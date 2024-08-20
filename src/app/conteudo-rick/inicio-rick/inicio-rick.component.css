@@ -1,0 +1,185 @@
+.inicio-content {
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #1F1F1F;
+    color: white;
+    padding-top: 20px;
+}
+
+.inicio-img-rick {
+    width: 110px;
+    height: 48px;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 720px;
+}
+
+.corTextoInput {
+    color: white !important;
+}
+
+.espacamentoTop {
+    margin-top: 2rem;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+}
+
+.imagens-galeria {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.imagem-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
+    /* Adiciona posição relativa para posicionar o ícone sobre a imagem */
+}
+
+.imagem-wrapper {
+    width: 224px;
+    height: 224px;
+    position: relative;
+}
+
+.imagem-geral {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.info-imagem {
+    width: 224px;
+    height: 38%;
+    background-color: black;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.nome-imagem {
+    font-family: 'Creepster', cursive;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #FAFAFA;
+    margin-bottom: 0.5rem;
+}
+
+.tipo-imagem {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    color: #A4A4A4;
+}
+
+.estiloPaginator {
+    background-color: #1F1F1F;
+    color: white;
+}
+
+::ng-deep .mat-mdc-paginator-icon {
+    fill: white !important;
+}
+
+.no-results {
+    width: 720px;
+    height: 511px;
+    background-color: #0A0A0A;
+    border-radius: var(--measure-radius-s);
+    border: 1px solid transparent;
+    /* Ajuste a borda se necessário */
+    opacity: 1;
+    /* Ajuste a opacidade se necessário */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--measure-spacing-m);
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.no-results-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #FAFAFA;
+}
+
+.no-results-subtext {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #A4A4A4;
+    margin-top: 0.5rem;
+}
+
+.estiloCoracao {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 19px;
+    font-size: 20px;
+    background-color: transparent;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.estiloCoracaoPreto {
+    color: #0A0A0A;
+}
+
+.estiloBordaCoracao {
+    position: absolute;
+    background: #FFFFFF;
+    width: 40px;
+    height: 40px;
+    border-radius: 0px 20px 0px 20px;
+    top: 0px;
+    right: 0;
+}
+
+.fontInicio {
+    font-family: 'Creepster', cursive;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    color: #00B5CC;
+    text-shadow:
+        1px 1px 0 #B2DF28,
+        -1px -1px 0 #B2DF28,
+        -1px 1px 0 #B2DF28,
+        1px -1px 0 #B2DF28;
+}

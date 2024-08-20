@@ -1,0 +1,50 @@
+<div class="inicio-content">
+    <div class="container">
+        <div class="espacamentoTop col-12">
+            <div class="row">
+                <h1 class="fontInicio">INÍCIO</h1>
+            </div>
+            <div class="espamentoPesquisar">
+                <mat-form-field appearance="outline" class="custom-form-field">
+                    <mat-label>Pesquisar</mat-label>
+                    <input matInput [(ngModel)]="searchText" class="corTextoInput" (keydown.enter)="onSearch()">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row imagens-galeria" *ngIf="seachValidador">
+            <div *ngFor="let item of filteredData | slice: (paginator?.pageIndex ?? 0) * (paginator?.pageSize ?? 6) : ((paginator?.pageIndex ?? 0) + 1) * (paginator?.pageSize ?? 6)"
+                class="col-4 imagem-container">
+                <div class="imagem-wrapper">
+                    <i class="fa-regular fa-heart estiloCoracao" *ngIf="!item.favorito"
+                        (click)="toggleFavorito(item)"></i>
+                    <div *ngIf="item.favorito" class="estiloBordaCoracao">
+                        <i class="fa-solid fa-heart estiloCoracao estiloCoracaoPreto"
+                            (click)="toggleFavorito(item)"></i>
+                    </div>
+                    <img [src]="item.url" alt="imagens-geral" class="imagem-geral">
+                </div>
+                <div class="info-imagem">
+                    <div class="nome-imagem">
+                        {{ item.nome }}
+                    </div>
+                    <div class="tipo-imagem">
+                        {{ item.tipo }}
+                    </div>
+                    <div class="tipo-imagem">
+                        {{ item.extraTipo }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="no-results" *ngIf="!seachValidador">
+            <div class="no-results-text">
+                Nada foi encontrado
+            </div>
+            <div class="no-results-subtext">
+                Tente realizar uma nova busca.
+            </div>
+        </div>
+        <mat-paginator [pageSize]="6" [pageSizeOptions]="[6]" aria-label="Seleciona Página"
+            class="estiloPaginator"></mat-paginator>
+    </div>
+</div>
