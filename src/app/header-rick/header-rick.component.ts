@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { FavoritoService } from '../conteudo-rick/service/favoritos-service/favorito.service';
 
 @Component({
@@ -10,11 +10,18 @@ import { FavoritoService } from '../conteudo-rick/service/favoritos-service/favo
 export class HeaderRickComponent implements OnInit {
   srcImagem: string = '../assets/pequeno-img-rick.png';
   favoritesCount: number = 0;
+  isHomeActive: boolean = true;
 
   constructor(
     private router: Router,
     private favoritoService: FavoritoService
-  ) {}
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isHomeActive = event.urlAfterRedirects.includes('/home');
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.updateFavoritesCount();
@@ -28,10 +35,10 @@ export class HeaderRickComponent implements OnInit {
   }
 
   enviaHome(): void {
-    this.router.navigate(["/home"]);
+    this.router.navigate(['/home']);
   }
 
   enviaFavorito(): void {
-    this.router.navigate(["/favoritos"]);
+    this.router.navigate(['/favoritos']);
   }
 }
