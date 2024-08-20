@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { RequisicaoRickService } from '../service/requisicao-rick.service';
-import { ItemsRick } from '../../models/itemsRick'
+import { ItemsRick } from '../../models/itemsRick';
+import { RequisicaoRickService } from '../service/requisicao-rick-service/requisicao-rick.service';
+import { FavoritoService } from '../service/favoritos-service/favorito.service';
 
 @Component({
   selector: 'app-inicio-rick',
@@ -18,7 +19,10 @@ export class InicioRickComponent implements OnInit {
   searchText: string = '';
   seachValidador: boolean = true;
 
-  constructor(private requisicaoRickService: RequisicaoRickService) {}
+  constructor(
+    private requisicaoRickService: RequisicaoRickService,
+    private favoritoService: FavoritoService
+  ) {}
 
   ngOnInit(): void {
     this.loadImages();
@@ -46,6 +50,13 @@ export class InicioRickComponent implements OnInit {
   }
 
   toggleFavorito(item: ItemsRick): void {
+    if (item.favorito) {
+      console.log(`Removing favorite: ${item.nome}`);
+      this.favoritoService.removeFavorite(item);
+    } else {
+      console.log(`Adding favorite: ${item.nome}`);
+      this.favoritoService.addFavorite(item);
+    }
     item.favorito = !item.favorito;
   }
 

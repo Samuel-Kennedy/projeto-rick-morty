@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RequisicaoRickService } from './requisicao-rick.service';
+import { RequisicaoRickService } from '../requisicao-rick-service/requisicao-rick.service'
 
 describe('RequisicaoRickService', () => {
   let service: RequisicaoRickService;
