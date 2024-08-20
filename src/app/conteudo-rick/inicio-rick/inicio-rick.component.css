@@ -104,3 +104,39 @@ body {
 ::ng-deep .mat-mdc-paginator-icon {
     fill: white !important;
 }
+
+.no-results {
+    width: 720px;
+    height: 511px;
+    background-color: #0A0A0A;
+    border-radius: var(--measure-radius-s);
+    border: 1px solid transparent; /* Ajuste a borda se necessário */
+    opacity: 1; /* Ajuste a opacidade se necessário */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--measure-spacing-m);
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.no-results-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #FAFAFA;
+}
+
+.no-results-subtext {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #A4A4A4;
+    margin-top: 0.5rem;
+}
+

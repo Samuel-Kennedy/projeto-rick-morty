@@ -11,10 +11,10 @@ import { RequisicaoRickService } from '../service/requisicao-rick.service';
 export class InicioRickComponent implements OnInit {
   srcImagem: string = '../assets/inicio-img-rick.png';
   dataSource = new MatTableDataSource<{ url: string, nome: string, tipo: string, extraTipo: string }>();
-  filteredData: { url: string, nome: string, tipo: string, extraTipo: string }[] = []; // Nova propriedade para armazenar os dados filtrados
+  filteredData: { url: string, nome: string, tipo: string, extraTipo: string }[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  searchText: string = ''; // Adiciona a variável searchText para armazenar o texto de pesquisa
-
+  searchText: string = '';
+  seachValidador: boolean = true;
   constructor(private requisicaoRickService: RequisicaoRickService) {}
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class InicioRickComponent implements OnInit {
           tipo: character.species,
           extraTipo: character.type
         }));
-        this.filteredData = this.dataSource.data; // Inicialmente, filtrada é igual a todos os dados
+        this.filteredData = this.dataSource.data;
         if (this.paginator) {
           this.dataSource.paginator = this.paginator;
         }
@@ -44,6 +44,10 @@ export class InicioRickComponent implements OnInit {
   onSearch(): void {
     const filterValue = this.searchText.trim().toLowerCase();
     this.filteredData = this.dataSource.data.filter(item => item.nome.toLowerCase().includes(filterValue));
-    console.log(this.filteredData); // Para ver os dados filtrados
+    if(this.filteredData.length === 0){
+      this.seachValidador = false;
+    }else{
+      this.seachValidador = true;
+    }
   }
 }
