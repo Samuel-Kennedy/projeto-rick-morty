@@ -10,8 +10,10 @@ import { RequisicaoRickService } from '../service/requisicao-rick.service';
 })
 export class InicioRickComponent implements OnInit {
   srcImagem: string = '../assets/inicio-img-rick.png';
-  dataSource = new MatTableDataSource<{ url: string, nome: string, tipo: string,  extraTipo: string}>();
+  dataSource = new MatTableDataSource<{ url: string, nome: string, tipo: string, extraTipo: string }>();
+  filteredData: { url: string, nome: string, tipo: string, extraTipo: string }[] = []; // Nova propriedade para armazenar os dados filtrados
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  searchText: string = ''; // Adiciona a variável searchText para armazenar o texto de pesquisa
 
   constructor(private requisicaoRickService: RequisicaoRickService) {}
 
@@ -22,20 +24,26 @@ export class InicioRickComponent implements OnInit {
   loadImages(): void {
     this.requisicaoRickService.getCharacters().subscribe({
       next: (data) => {
-        console.log(data)
         this.dataSource.data = data.results.map((character: any) => ({
           url: character.image,
           nome: character.name,
           tipo: character.species,
           extraTipo: character.type
         }));
+        this.filteredData = this.dataSource.data; // Inicialmente, filtrada é igual a todos os dados
         if (this.paginator) {
           this.dataSource.paginator = this.paginator;
         }
       },
       error: () => {
-        // Tratamento aqui
+        // Tratamento de erro
       }
     });
+  }
+
+  onSearch(): void {
+    const filterValue = this.searchText.trim().toLowerCase();
+    this.filteredData = this.dataSource.data.filter(item => item.nome.toLowerCase().includes(filterValue));
+    console.log(this.filteredData); // Para ver os dados filtrados
   }
 }

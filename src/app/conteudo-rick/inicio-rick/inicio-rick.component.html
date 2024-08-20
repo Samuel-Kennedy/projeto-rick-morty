@@ -4,15 +4,15 @@
             <div class="row">
                 <img [src]="srcImagem" alt="pequeno-img-rick" class="inicio-img-rick">
             </div>
-            <div class="row espamentoPesquisar">
+            <div class="espamentoPesquisar">
                 <mat-form-field appearance="outline" class="custom-form-field">
                     <mat-label>Pesquisar</mat-label>
-                    <input class="corTextoInput" matInput>
+                    <input matInput [(ngModel)]="searchText" class="corTextoInput" (keydown.enter)="onSearch()">
                 </mat-form-field>
             </div>
         </div>
         <div class="row imagens-galeria">
-            <div *ngFor="let item of dataSource?.data | slice: (paginator?.pageIndex ?? 0) * (paginator?.pageSize ?? 6) : ((paginator?.pageIndex ?? 0) + 1) * (paginator?.pageSize ?? 6)"
+            <div *ngFor="let item of filteredData | slice: (paginator?.pageIndex ?? 0) * (paginator?.pageSize ?? 6) : ((paginator?.pageIndex ?? 0) + 1) * (paginator?.pageSize ?? 6)"
                 class="col-4 imagem-container">
                 <div class="imagem-wrapper">
                     <img [src]="item.url" alt="imagens-geral" class="imagem-geral">
@@ -30,6 +30,7 @@
                 </div>
             </div>
         </div>
-        <mat-paginator [pageSize]="6" [pageSizeOptions]="[6]" aria-label="Seleciona Pagina" class="estiloPaginator"></mat-paginator>
+        <mat-paginator [pageSize]="6" [pageSizeOptions]="[6]" aria-label="Seleciona Pagina"
+            class="estiloPaginator"></mat-paginator>
     </div>
 </div>
